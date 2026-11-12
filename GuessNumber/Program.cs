@@ -118,31 +118,90 @@
 //         break;
 // }
 
-Console.Write("\nVvedi nomer mesyatsa cifroy (1-12): ");
-int monNumber = int.Parse(Console.ReadLine());
-switch (monNumber)
+// Console.Write("\nVvedi nomer mesyatsa cifroy (1-12): ");
+// int monNumber = int.Parse(Console.ReadLine());
+// switch (monNumber)
+// {
+//     case 1:
+//     case 2:
+//     case 12:
+//         Console.WriteLine("zima");
+//         break;
+//     case 3:
+//     case 4:
+//     case 5:
+//         Console.WriteLine("vesna");
+//         break;
+//     case 6:
+//     case 7:
+//     case 8:
+//         Console.WriteLine("leto");
+//         break;
+//     case 9:
+//     case 10:
+//     case 11:
+//         Console.WriteLine("osen");
+//         break;
+//     default:
+//         Console.WriteLine("takogo mesyatsa net!");
+//         break;
+// }
+
+using System.Reflection.Metadata;
+
+Random random = new Random();
+int secret = random.Next(1, 101);
+int attempts = 0;
+bool guessed = false;
+Console.WriteLine("ugaday chislo (1-100)");
+Console.WriteLine("ya zagadal chislo, poprobuy ugadat");
+string result = attempts <= 7 
+    ? $"otlichno! vsego {attempts} popytok" 
+    : $"chislo naydeno za {attempts} popytok. mozhno lucshe";
+Console.WriteLine($"pravilno! zagadannoe chislo: {secret}");
+Console.WriteLine($"{result}");
+
+string GetHint(int difference)
 {
-    case 1:
-    case 2:
-    case 12:
-        Console.WriteLine("zima");
-        break;
-    case 3:
-    case 4:
-    case 5:
-        Console.WriteLine("vesna");
-        break;
-    case 6:
-    case 7:
-    case 8:
-        Console.WriteLine("leto");
-        break;
-    case 9:
-    case 10:
-    case 11:
-        Console.WriteLine("osen");
-        break;
-    default:
-        Console.WriteLine("takogo mesyatsa net!");
-        break;
+    switch (difference)
+    {
+        case <= 3:
+            return "goryacho";
+        case <= 10:
+            return "teplo";
+        case <= 25:
+            return "prohladno";
+        default:
+            return "holodno";
+    }
+}
+
+while (!guessed)
+{
+    Console.Write($"popytka {attempts + 1}. tvoy variant: ");
+    string input = Console.ReadLine();
+    if (!int.TryParse(input, out int guess))
+    {
+        Console.WriteLine("!!! vvedi tseloe chislo a ne text");
+        continue;
+    }
+    if (guess < 1 || guess > 100)
+    {
+        Console.WriteLine("!!! chislo dolzhno byt ot 1 do 100");
+        continue;
+    }
+    attempts++;
+    if (guess < secret)
+    {
+        int diff = secret - guess;
+        string hint = GetHint(diff);
+        Console.WriteLine($"bolshe! {hint}\n");
+    } else if (guess > secret) {
+        int diff = guess - secret;
+        string hint = GetHint(diff);
+        Console.WriteLine($"menshe! {hint}\n");
+    } else
+    {
+        guessed = true;
+    }
 }
