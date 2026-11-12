@@ -57,16 +57,92 @@
 // }
 
 
-Console.Write("vvedite vash vozrast: ");
-int age = int.Parse(Console.ReadLine());
-string ageGroup = age >= 18 ? "sovershennoletniy" : "nesovershennoletniy";
-Console.WriteLine($"you {ageGroup}");
-Console.Write("\nVvedite temperaturu za oknom (C): ");
-double temp = double.Parse(Console.ReadLine());
-string weather = temp >= 20 ? "teplo" : (temp >= 0 ? "prohladno" : "moroz");
-Console.WriteLine($"za oknom {weather}");
+// Console.Write("vvedite vash vozrast: ");
+// int age = int.Parse(Console.ReadLine());
+// string ageGroup = age >= 18 ? "sovershennoletniy" : "nesovershennoletniy";
+// Console.WriteLine($"you {ageGroup}");
+// Console.Write("\nVvedite temperaturu za oknom (C): ");
+// double temp = double.Parse(Console.ReadLine());
+// string weather = temp >= 20 ? "teplo" : (temp >= 0 ? "prohladno" : "moroz");
+// Console.WriteLine($"za oknom {weather}");
 
-Console.Write("\nVvedite chislo: ");
-int n = int.Parse(Console.ReadLine());
-string parity = n % 2 == 0 ? "chet" : "nechet";
-Console.WriteLine($"chislo {n} - {parity}");
+// Console.Write("\nVvedite chislo: ");
+// int n = int.Parse(Console.ReadLine());
+// string parity = n % 2 == 0 ? "chet" : "nechet";
+// Console.WriteLine($"chislo {n} - {parity}");
+
+
+// Console.WriteLine("menu");
+// Console.WriteLine("1. posmotret raspisanie");
+// Console.WriteLine("2. posmotret otsenki");
+// Console.WriteLine("3. svyaz s prepodavatelem");
+// Console.WriteLine("4. vyiti");
+// Console.Write("vyberi punkt (1-4): ");
+// string choice = Console.ReadLine();
+// switch (choice)
+// {
+//     case "1":
+//         Console.WriteLine("raspisanie: ISP-242, kab. 1-36, 13:40");
+//         break;
+//     case "2":
+//         Console.WriteLine("vashi otsenki: ISRPO - 34, RPM - 51");
+//         break;
+//     case "3":
+//         Console.WriteLine("Email: prepod@gmail.com");
+//         break;
+//     case "4":
+//         Console.WriteLine("do svidaniya");
+//         break;
+//     default:
+//         Console.WriteLine($"oshibka: punkt {choice} ne sushestvuet. vvedi chislo ot 1 do 4");
+//         break;
+// }
+
+// Console.Write("\nVvedite nomer dnya nedeli (1-7): ");
+// int dayNumber = int.Parse(Console.ReadLine());
+// switch (dayNumber)
+// {
+//     case 1:
+//     case 2:
+//     case 3:
+//     case 4:
+//     case 5:
+//         Console.WriteLine("rabochiy den");
+//         break;
+//     case 6:
+//     case 7:
+//         Console.WriteLine("vihodnoy");
+//         break;
+//     default:
+//         Console.WriteLine("takogo dnya net!");
+//         break;
+// }
+
+Console.Write("\nVvedi nomer mesyatsa cifroy (1-12): ");
+int monNumber = int.Parse(Console.ReadLine());
+switch (monNumber)
+{
+    case 1:
+    case 2:
+    case 12:
+        Console.WriteLine("zima");
+        break;
+    case 3:
+    case 4:
+    case 5:
+        Console.WriteLine("vesna");
+        break;
+    case 6:
+    case 7:
+    case 8:
+        Console.WriteLine("leto");
+        break;
+    case 9:
+    case 10:
+    case 11:
+        Console.WriteLine("osen");
+        break;
+    default:
+        Console.WriteLine("takogo mesyatsa net!");
+        break;
+}
